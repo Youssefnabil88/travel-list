@@ -2,7 +2,7 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard";
 import Item from "./Item";
 import { useState } from "react";
 
-export default function PackingList({ items, handleDelete,handleToggle }) {
+export default function PackingList({ items, handleDelete, handleToggle, handleClear}) {
 const [sortBy, setSortBy] = useState('input');
 
 let sortedItems;
@@ -27,6 +27,7 @@ else if(sortBy === "packed") {
           <option value="name">select by name</option>
           <option value="packed">select by packed</option>
         </select>
+        <button onClick={handleClear}>Clear</button>
       </div>
     </div>
   );

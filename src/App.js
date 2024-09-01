@@ -24,6 +24,13 @@ function App() {
     );
   }
 
+  function handleClear() {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete all  itmes?"
+    );
+    if (confirmed) setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -32,6 +39,7 @@ function App() {
         items={items}
         handleDelete={handleDelete}
         handleToggle={handleToggle}
+        handleClear={handleClear}
       />
       <Status items={items} />
     </div>
