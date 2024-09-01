@@ -16,16 +16,24 @@ function App() {
     setItems([...updatedItems]);
   }
 
-  function handleToggle(id){
-    setItems(oldItems => oldItems.map((item) => item.id === id ? {...item,packed:!item.packed}:item))
+  function handleToggle(id) {
+    setItems((oldItems) =>
+      oldItems.map((item) =>
+        item.id === id ? { ...item, packed: !item.packed } : item
+      )
+    );
   }
 
   return (
     <div className="app">
       <Logo />
       <Form handleAddItem={handleAddItem} />
-      <PackingList items={items} handleDelete={handleDelete} handleToggle={handleToggle}/>
-      <Status />
+      <PackingList
+        items={items}
+        handleDelete={handleDelete}
+        handleToggle={handleToggle}
+      />
+      <Status items={items} />
     </div>
   );
 }
