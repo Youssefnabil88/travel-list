@@ -6,7 +6,8 @@ export default function Form({handleAddItem}) {
 
 
     function handelSubmit(e){
-        e.preventDefault();
+      e.preventDefault();
+      if(description ==="") return;
         const newItem = {description, quantity, id:Date.now(), packed : false};
         handleAddItem(newItem);
         setDescription('');
