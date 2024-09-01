@@ -1,15 +1,18 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 
-export default function Form() {
+export default function Form({handleAddItem}) {
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
+
 
     function handelSubmit(e){
         e.preventDefault();
         const newItem = {description, quantity, id:Date.now(), packed : false};
+        handleAddItem(newItem);
         setDescription('');
-        setQuantity(1);
+        setQuantity(1); 
     }
+
   return (
     <form className="add-form" onSubmit={handelSubmit}>
       <h3> What do you need for your 🤩 trip?</h3>
